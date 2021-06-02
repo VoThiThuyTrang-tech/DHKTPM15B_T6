@@ -1,98 +1,84 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Untitled Document</title>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=width-device,initial-scale=1"/>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/index.js"></script>
+    <title>ChinhQuy</title>
+    <meta charset="utf-8" />
+    <style>
+        #er1, #er2, #er3 {
+            color: red;
+            font-style: italic;
+        }
+
+        #txtten {
+            margin-left: 27px;
+        }
+    </style>
+    <script>
+ function ktraten()
+ {
+ var regt = /^[A-Z]+[A-Za-z]*(\s*[A-Z]+[A-Za-z]*)$/;
+ var t = document.getElementById("txtten").value;
+ if (regt.test(t))
+ {
+ document.getElementById("er1").innerHTML = "";
+ return true;
+ }
+ else
+ {
+ document.getElementById("er1").innerHTML = "Ten sai";
+ return false;
+ }
+ }
+ function ktrans()
+ {
+ var ns = document.getElementById("txtns").value;
+ ns = new Date(ns);
+ var crr = new Date();
+ var t = crr.getFullYear() - ns.getFullYear();
+ if(t>=16)
+ {
+ document.getElementById("er2").innerHTML = "";
+ return true;
+ }
+ else
+ {
+ document.getElementById("er2").innerHTML = "Tuoi khong hop le";
+ return false;
+ }
+ }
+
+    </script>
 </head>
 <body>
     <div class="container">
-        <div class="col-xs-12" style="margin-top:10px">
-            <nav class="navbar navbar-collapse">
-                <a href="HtmlPage.html"> <img src="../img/Banner.png" width="100%" />"</a>
-            </nav>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>DANG KY TAI KHOAN</h1>
+            </div>
         </div>
-        <div class="col-xs-12"></div>
-            <nav class="navbar navbar-collapse">
-            <ul class="nav nav-pills">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">SHOP</a></li>
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#">ARTICLE</a></li>
-                <li class="dropdow">
-                    <a class="dropdow-toggle" data-toggle="dropdown" href="#">SERVICES<span class="caret"></span></a>
-                    <ul class="dropdow-menu">
-                        <li><a href="#" id="myBtn">Online</a></li>
-                        <li><a href="#" id="myBtn1">Offline</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="col-xs-12">
-        <section class="col-xs-3">
-            <img src="../img/left.png" width="100%" />
-        </section>
-        <aside class="col-xs-9">
-            <h2 class="text-left">Customer order list</h2>
-            <table class="table table-striped" role="table" id="table">
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Delivery Date</th>
-                    <th>Email</th>
-                    <th>Telephone Number</th>
-                </tr>
-            </table>
-        </aside>
-    </div>
-    <div class="col-xs-12">
-        <p class="modal-footwr text-left text-success" style="text-align:left">&copy;2019-SE FIT.ALL RIGHTS RESERVED</p>
-    </div>
-    <div class="modal-fade" role="dialog" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="text-center">Customer Information</h2>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form">
-                        <label for="txtName" class="control-label col-xs-3">Customer name</label>
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="txtName"/>
-                            <span class="text-danger" id="tbName">'</span>
-                        </div>
-                        <label for="txtAdd" class="control-label col-xs-3">Address</label>
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="txtAdd" />
-                            <span class="text-danger" id="tbName">'</span>
-                        </div>
-                        <label for="txtDe" class="control-label col-xs-3">Delivery date</label>
-                        <div class="col-xs-9">
-                            <input type="date" class="form-control" id="txtName" />
-                            <span class="text-danger" id="tbDe">'</span>
-                        </div>
-                        <label for="txtMail" class="control-label col-xs-3">Email</label>
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="txtMail" />
-                            <span class="text-danger" id="tbMail">'</span>
-                        </div>
-                        <label for="txtPhone" class="control-label col-xs-3">Telephone number</label>
-                        <div class="col-xs-9">
-                            <input type="text" class="form-control" id="txtPhone" />
-                            <span class="text-danger" id="tbPhone">'</span>
-                        </div>
-                        <button type="button" class="btn btn-success btn-group-justified" id="btnSave">Save</button>
-                    </form>
-                </div>
+        <div class="row">
+            <div class="col-4 text-right">
+                <p>Ten Dang Nhap:</p>
+            </div>
+            <div class="col-7">
+                <input type="text" class="formcontrol" id="txtTen" placeholder="Ten Dang Nhap" onblur="ktraten();">
+            </div>
+            <div class="col-1">
+                <span class="text-danger" id="er1">*</span>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-4 text-right">
+                <p>Nam sinh:</p>
+            </div>
+            <div class="col-7 ">
+                <input type="date" class="formcontrol" id="txtns" placeholder="Nhap ns">
+            </div>
+            <div class="col-1">
+                <span class="text-danger" id="er1">*</span>
             </div>
         </div>
     </div>
+
 </body>
 </html>
