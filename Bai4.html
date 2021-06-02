@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bai4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-3">Nhập năm sinh của bạn</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-primary">Tính tuổi</button>
+            </div>
+        </div>
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+    </div>
+
+    <script>
+    const ipnElement     = document.querySelector('input')
+    const btnElement     = document.querySelector('button')
+    const resultElement1 = document.querySelector('#result1')
+    const resultElement2 = document.querySelector('#result2')
+    const resultElement3 = document.querySelector('#result3')
+
+    btnElement.addEventListener('click', calculateAge)
+
+    function calculateAge() {
+      const yearOfBirth = parseInt(ipnElement.value)
+      const date = new Date()
+      const currentYear = date.getFullYear()
+      const age = currentYear - yearOfBirth
+      resultElement1.innerHTML = `Năm hiện tại: ${currentYear}`
+      resultElement2.innerHTML = `Năm sinh: ${yearOfBirth}`
+      resultElement3.innerHTML = `Tuổi của bạn: ${currentYear} - ${yearOfBirth} = ${age} tuổi`
+    }
+    </script>
+
+</body>
+</html>
